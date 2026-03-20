@@ -1,0 +1,100 @@
+name: "🛹 New Product"
+description: "Request a new product to be added to the Brave Goose Skate Emporium catalog."
+title: "New product: "
+labels: ["new-product"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Add a New Product
+
+        Fill in the details below. Once submitted, Copilot will use the **catalog-management** skill to:
+        - Add the product to the catalog with the correct ID and image slug
+        - Rewrite your description in the Brave Goose brand voice (preppy, witty, premium)
+        - Process and place the product image
+        - Open a pull request for review
+
+  - type: input
+    id: product-name
+    attributes:
+      label: Product name
+      description: "The display name for the product (e.g. \"The Lancelot\", \"Iron Gauntlet 149mm\")"
+      placeholder: "The Paladin 8.25\""
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Boards
+        - Trucks
+        - Wheels
+        - Apparel
+    validations:
+      required: true
+
+  - type: dropdown
+    id: collection
+    attributes:
+      label: Collection
+      options:
+        - Knight's Choice
+        - House Colours
+        - The Quad
+        - Crest Collection
+    validations:
+      required: true
+
+  - type: input
+    id: price
+    attributes:
+      label: "Price (GBP)"
+      description: "Numeric value without the £ symbol (e.g. 149.99)"
+      placeholder: "149.99"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Product description
+      description: |
+        A rough description of the product. Copilot will rewrite this in the Brave Goose brand voice
+        — confident, slightly witty, premium. Include key specs (size, material, durometer, etc.).
+      placeholder: "8.25 inch maple deck, medium concave, good for street and park skating"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Featured on homepage?
+      description: "Featured products appear in the 'Featured Gear' section on the homepage."
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
+  - type: textarea
+    id: image
+    attributes:
+      label: Product image
+      description: |
+        Drag and drop or paste a product image here. Preferred: square (800×800px), JPEG or PNG.
+        If no image is provided, the product will use the placeholder icon until one is added.
+      placeholder: "Drag and drop an image here..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: "Any other context — e.g. inspiration for the description, comparable products, launch timing."
+      placeholder: "Optional"
+    validations:
+      required: false

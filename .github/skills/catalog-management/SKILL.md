@@ -21,6 +21,7 @@ Detailed procedures live in the `references/` folder — load on demand.
 | [Categories & Collections](references/categories-collections.md) | Adding or modifying categories, collections, or navigation |
 | [Images](references/images.md) | Adding, replacing, or managing product images |
 | [Brand Voice](references/brand-voice.md) | Writing product descriptions, taglines, and copy |
+| [GitHub Workflow](references/github-workflow.md) | Issue-to-PR pipeline, agent instructions, review process |
 
 ---
 
