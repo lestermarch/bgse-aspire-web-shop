@@ -1,0 +1,16 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.3">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>8a63554e-4c94-40b2-b1b7-036b6b44e028</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BraveGoose.ApiService\BraveGoose.ApiService.csproj" />
+    <ProjectReference Include="..\BraveGoose.Web\BraveGoose.Web.csproj" />
+  </ItemGroup>
+
+</Project>

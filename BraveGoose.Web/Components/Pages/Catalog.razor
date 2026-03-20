@@ -1,0 +1,62 @@
+@page "/catalog/{Category}"
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+@inject CatalogApiClient CatalogApi
+
+<PageTitle>@Category — Brave Goose Skate Emporium</PageTitle>
+
+<section class="catalog-header">
+    <h1>@Category</h1>
+    <p class="section-subtitle">@GetCategoryTagline(Category)</p>
+</section>
+
+<section class="catalog-content">
+    @if (products == null)
+    {
+        <p class="loading">Summoning the catalogue&hellip;</p>
+    }
+    else if (products.Length == 0)
+    {
+        <p>No products found in this category.</p>
+    }
+    else
+    {
+        <div class="product-grid">
+            @foreach (var product in products)
+            {
+                <a href="/product/@product.Id" class="product-card">
+                    <div class="product-image-placeholder">
+                        <span>⚔</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-collection">@product.Collection</span>
+                        <h3>@product.Name</h3>
+                        <p class="product-description">@product.Description</p>
+                        <p class="product-price">£@product.Price.ToString("F2")</p>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    [Parameter] public string Category { get; set; } = string.Empty;
+    private Product[]? products;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        products = null;
+        products = await CatalogApi.GetProductsByCategoryAsync(Category);
+    }
+
+    private static string GetCategoryTagline(string category) => category switch
+    {
+        "Boards" => "The foundation of every noble ride.",
+        "Trucks" => "Forged in the fires of the halfpipe.",
+        "Wheels" => "Roll with distinction and purpose.",
+        "Apparel" => "Wear the crest. Earn the bruises.",
+        _ => "Fine goods for the discerning skater."
+    };
+}

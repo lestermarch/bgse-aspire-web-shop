@@ -1,0 +1,75 @@
+@page "/"
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+@inject CatalogApiClient CatalogApi
+
+<PageTitle>Brave Goose Skate Emporium</PageTitle>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-crest">⚔</div>
+        <h1>Brave Goose<br />Skate Emporium</h1>
+        <p class="hero-tagline">Noble decks for dishonourable tricks.</p>
+        <a href="/catalog/Boards" class="btn btn-primary">Shop the Collection</a>
+    </div>
+</section>
+
+<section class="featured-section">
+    <h2>Featured Gear</h2>
+    <p class="section-subtitle">Hand-selected by the House Master.</p>
+
+    @if (featuredProducts == null)
+    {
+        <p class="loading">Summoning the catalogue&hellip;</p>
+    }
+    else
+    {
+        <div class="product-grid">
+            @foreach (var product in featuredProducts)
+            {
+                <a href="/product/@product.Id" class="product-card">
+                    <div class="product-image-placeholder">
+                        <span>⚔</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-collection">@product.Collection</span>
+                        <h3>@product.Name</h3>
+                        <p class="product-price">£@product.Price.ToString("F2")</p>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+</section>
+
+<section class="collections-section">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+        <a href="/catalog/Boards" class="category-card category-boards">
+            <h3>Boards &amp; Decks</h3>
+            <p>The foundation of honour.</p>
+        </a>
+        <a href="/catalog/Trucks" class="category-card category-trucks">
+            <h3>Trucks</h3>
+            <p>Forged for the fearless.</p>
+        </a>
+        <a href="/catalog/Wheels" class="category-card category-wheels">
+            <h3>Wheels</h3>
+            <p>Roll with distinction.</p>
+        </a>
+        <a href="/catalog/Apparel" class="category-card category-apparel">
+            <h3>Apparel</h3>
+            <p>Wear the crest.</p>
+        </a>
+    </div>
+</section>
+
+@code {
+    private Product[]? featuredProducts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        featuredProducts = await CatalogApi.GetFeaturedProductsAsync();
+    }
+}

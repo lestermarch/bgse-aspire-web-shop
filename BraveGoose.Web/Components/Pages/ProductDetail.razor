@@ -1,0 +1,49 @@
+@page "/product/{Id:int}"
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+@inject CatalogApiClient CatalogApi
+
+<PageTitle>@(product?.Name ?? "Product") — Brave Goose Skate Emporium</PageTitle>
+
+<section class="product-detail">
+    @if (product == null)
+    {
+        <p class="loading">Summoning product details&hellip;</p>
+    }
+    else
+    {
+        <div class="product-detail-layout">
+            <div class="product-detail-image">
+                <div class="product-image-placeholder large">
+                    <span>⚔</span>
+                </div>
+            </div>
+            <div class="product-detail-info">
+                <span class="product-collection">@product.Collection</span>
+                <h1>@product.Name</h1>
+                <p class="product-price large">£@product.Price.ToString("F2")</p>
+                <p class="product-description">@product.Description</p>
+                <a href="/catalog/@product.Category" class="btn btn-secondary">Back to @product.Category</a>
+            </div>
+        </div>
+    }
+</section>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Product? product;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        product = null;
+        try
+        {
+            product = await CatalogApi.GetProductAsync(Id);
+        }
+        catch (HttpRequestException)
+        {
+            // Product not found
+        }
+    }
+}

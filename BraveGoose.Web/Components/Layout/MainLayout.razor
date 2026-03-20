@@ -1,0 +1,36 @@
+@inherits LayoutComponentBase
+
+<div class="site">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <span class="logo-crest">⚔</span>
+                <span class="logo-text">Brave Goose<br /><small>Skate Emporium</small></span>
+            </a>
+            <nav class="main-nav">
+                <a href="/catalog/Boards">Boards</a>
+                <a href="/catalog/Trucks">Trucks</a>
+                <a href="/catalog/Wheels">Wheels</a>
+                <a href="/catalog/Apparel">Apparel</a>
+                <a href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-content">
+        @Body
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-brand">Brave Goose Skate Emporium &copy; @DateTime.Now.Year</p>
+            <p class="footer-tagline">Where chivalry meets chapped shins.</p>
+        </div>
+    </footer>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
