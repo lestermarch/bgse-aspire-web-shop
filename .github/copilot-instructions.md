@@ -150,7 +150,44 @@ When you suggest CSS / styling:
 
 ---
 
-## 7. Coding Style & Quality
+## 7. Test-Driven Development (TDD)
+
+This project follows a **test-driven development** process. When implementing new features or fixing bugs, use the **red-green-refactor** cycle:
+
+1. **Red** — Write a failing test that defines the expected behaviour.
+2. **Green** — Write the minimum code to make the test pass.
+3. **Refactor** — Clean up the code while keeping tests green.
+
+### Rules
+
+- **Tests come first.** Do not implement a feature without a corresponding failing test.
+- **All tests must pass** before committing, opening a PR, or considering a task complete.
+- **Refactor only with green tests.** Never refactor while tests are failing.
+- **Run the full test suite** after changes: `dotnet test BraveGoose.sln`.
+
+### Testing stack
+
+- **Integration tests:** `Aspire.Hosting.Testing` with **xUnit** — spins up the real AppHost and tests against live services. These live in `BraveGoose.Tests/`.
+- **Unit tests:** xUnit — for isolated logic (models, helpers, validation). Add to `BraveGoose.Tests/` alongside integration tests.
+- Consult the Aspire skill's `references/testing.md` for patterns and examples.
+
+### What requires TDD
+
+- New API endpoints or changes to existing endpoints.
+- New services or service integrations.
+- Business logic (pricing, filtering, validation, etc.).
+- Bug fixes — write a test that reproduces the bug first.
+
+### What does NOT require TDD
+
+- Cosmetic CSS / styling changes.
+- Copy or content updates (product descriptions, taglines).
+- Configuration changes (appsettings, environment variables).
+- Adding a product via the catalog-management skill (this is a data-only change).
+
+---
+
+## 8. Coding Style & Quality
 
 When generating C# or front-end code:
 
@@ -166,7 +203,7 @@ If you are unsure about an architectural choice:
 
 ---
 
-## 8. Things to Avoid
+## 9. Things to Avoid
 
 - Do **not** introduce random UI frameworks or design systems unrelated to this repo without explanation.
 - Do **not** switch tech stacks (e.g., React SPA) unless explicitly requested.
@@ -174,7 +211,7 @@ If you are unsure about an architectural choice:
 
 ---
 
-## 9. When in Doubt
+## 10. When in Doubt
 
 If a user request is ambiguous:
 
