@@ -80,7 +80,7 @@ public class CatalogApiTests
             "/api/products", cancellationToken);
 
         Assert.NotNull(products);
-        Assert.Equal(16, products.Length);
+        Assert.Equal(23, products.Length);
     }
 
     [Fact]

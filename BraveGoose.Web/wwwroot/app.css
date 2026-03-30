@@ -398,6 +398,7 @@ img {
 .category-boards { background: linear-gradient(135deg, var(--color-navy), #1a3366); }
 .category-trucks { background: linear-gradient(135deg, var(--color-burgundy), #8a2a48); }
 .category-wheels { background: linear-gradient(135deg, var(--color-green), #1f6640); }
+.category-bearings { background: linear-gradient(135deg, #1a2040, var(--color-gold)); }
 .category-apparel { background: linear-gradient(135deg, #2a1a40, var(--color-burgundy)); }
 
 /* --- About Page --- */

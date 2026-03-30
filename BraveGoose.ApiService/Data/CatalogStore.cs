@@ -188,6 +188,91 @@ public static class CatalogStore
             Collection = "The Quad",
             ImageUrl = "/images/products/heraldic-socks-pack.jpg",
             IsFeatured = false
+        },
+
+        // Bearings — Squire line
+        new Product
+        {
+            Id = 17,
+            Name = "Bones Reds",
+            Description = "Every squire's first bearing. Reliable steel construction with Speed Cream lubrication — ready for courtyard sessions straight from the box.",
+            Price = 20.00m,
+            Category = "Bearings",
+            Collection = "The Quad",
+            ImageUrl = "/images/products/bones-reds.jpg",
+            IsFeatured = false
+        },
+
+        // Bearings — Knight line
+        new Product
+        {
+            Id = 18,
+            Name = "Bones Race Reds",
+            Description = "Built-in spacers for precision alignment and effortless installation. A knight's bearing, assembled with purpose.",
+            Price = 35.00m,
+            Category = "Bearings",
+            Collection = "House Colours",
+            ImageUrl = "/images/products/bones-race-reds.jpg",
+            IsFeatured = false
+        },
+        new Product
+        {
+            Id = 19,
+            Name = "Bones Super Reds",
+            Description = "Higher-grade steel races and a superior surface finish. Quieter, smoother, and longer-lasting — a distinguished upgrade.",
+            Price = 35.00m,
+            Category = "Bearings",
+            Collection = "Crest Collection",
+            ImageUrl = "/images/products/bones-super-reds.jpg",
+            IsFeatured = false
+        },
+        new Product
+        {
+            Id = 20,
+            Name = "Bones Big Balls",
+            Description = "Six oversized balls deliver greater speed and superior impact resistance. Bold engineering for bold skating.",
+            Price = 35.00m,
+            Category = "Bearings",
+            Collection = "House Colours",
+            ImageUrl = "/images/products/bones-big-balls.jpg",
+            IsFeatured = false
+        },
+
+        // Bearings — Hero line
+        new Product
+        {
+            Id = 21,
+            Name = "Bones Swiss",
+            Description = "Swiss-made precision. Legendary speed, impeccable tolerances, and a heritage of excellence. The hero's bearing.",
+            Price = 60.00m,
+            Category = "Bearings",
+            Collection = "Crest Collection",
+            ImageUrl = "/images/products/bones-swiss.jpg",
+            IsFeatured = true
+        },
+        new Product
+        {
+            Id = 22,
+            Name = "Bones Super Swiss 6",
+            Description = "Six oversized Swiss steel balls for faster acceleration and greater durability. Precision-forged for the elite.",
+            Price = 60.00m,
+            Category = "Bearings",
+            Collection = "Knight's Choice",
+            ImageUrl = "/images/products/bones-super-swiss-6.jpg",
+            IsFeatured = false
+        },
+
+        // Bearings — Monarch line
+        new Product
+        {
+            Id = 23,
+            Name = "Bones Ceramic",
+            Description = "Ceramic balls in Swiss steel races. The sovereign of bearings — unmatched speed, peerless precision, absolute supremacy.",
+            Price = 120.00m,
+            Category = "Bearings",
+            Collection = "Knight's Choice",
+            ImageUrl = "/images/products/bones-ceramic.jpg",
+            IsFeatured = true
         }
     ];
 }
